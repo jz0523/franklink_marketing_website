@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franklink - AI Career Agent & Companion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="Franklink Banner 2.png" alt="Franklink" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-wrapper">
+            <!-- Left Side - iPhone Demo -->
+            <div class="demo-section">
+                <!-- Hover Overlay for "Three Days After" -->
+                <div class="hover-overlay" id="hover-overlay">
+                    <div class="hover-text">Three Days After</div>
+                </div>
+
+                <!-- Phone 1 Container (Visible by default) -->
+                <div class="phone-container phone-one" id="phone-one">
+                    <!-- Phone Background Only -->
+                    <img src="iMessage_phone_demo/phone_one/phone.png" alt="iPhone" class="phone-image">
+
+                    <!-- Franklink Profile Picture -->
+                    <img src="iMessage_phone_demo/phone_one/Franklink Logo.png" alt="Franklink Profile" class="franklink-profile">
+                    <div class="franklink-text">Franklink</div>
+
+                    <!-- Messages Container -->
+                    <div class="messages-container">
+                        <!-- Message 1: User message (blue, right side) -->
+                        <div class="message user-msg slide-in-right" style="animation-delay: 0.5s" data-delay="0.5s">
+                            Can you help me find events I<br>can attend next week?
+                        </div>
+
+                        <!-- Message 2: Agent message (gray, left side) -->
+                        <div class="message agent-msg slide-in-left" style="animation-delay: 1s" data-delay="1s">
+                            For sure,buddy! See these<br>events near ur school:
+                        </div>
+
+                        <!-- Event Card 1: AI Entrepreneurship Workshop -->
+                        <div class="event-card slide-in-left" style="animation-delay: 1.5s" data-delay="1.5s">
+                            <div class="event-header">
+                                <span class="bullet">•</span>
+                                <span class="event-title">AI Entrepreneurship Workshop</span>
+                            </div>
+                            <div class="event-content-simple">
+                                <img src="iMessage_phone_demo/phone_one/AI_Entrepreneurship_Workshop.png" alt="Dharmesh Thakker" class="speaker-photo">
+                                <div class="event-right">
+                                    <div class="event-date-blue">10/22 2:00pm - 4:00pm<br>@ Tangen Hall</div>
+                                    <div class="event-actions">
+                                        <a href="#" class="action-link">Add to Calendar</a>
+                                        <a href="#" class="action-link">Learn More</a>
+                                        <a href="#" class="action-link">Signup</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Event Card 2: Jane Street Information Session -->
+                        <div class="event-card slide-in-right" style="animation-delay: 2s" data-delay="2s">
+                            <div class="event-header jane-street-header">
+                                <span class="bullet">•</span>
+                                <span class="event-title">Jane Street Information Session</span>
+                            </div>
+                            <div class="event-content-simple">
+                                <img src="iMessage_phone_demo/phone_one/Jane_Street_Info_Session.png" alt="Jane Street" class="jane-street-logo">
+                                <div class="event-right">
+                                    <div class="event-date-blue">10/29 7:00pm - 8:00pm<br>@ Virtual</div>
+                                    <div class="event-actions">
+                                        <a href="#" class="action-link">Add to Calendar</a>
+                                        <a href="#" class="action-link">Learn More</a>
+                                        <a href="#" class="action-link">Signup</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Message 3: Agent message with like -->
+                        <div class="message agent-msg with-like slide-in-left" style="animation-delay: 2.5s" data-delay="2.5s">
+                            They fit ur schedule well! Remind<br>you 15 mins before them?
+                            <img src="iMessage_phone_demo/phone_one/like_icon.png" alt="Like" class="msg-like-icon">
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Phone 2 Container (Hidden by default) -->
+                <div class="phone-container-two phone-two" id="phone-two" style="display: none;">
+                    <!-- Phone Background -->
+                    <img src="iMessage_phone_demo/phone_two/phone.png" alt="iPhone" class="phone-image">
+
+                    <!-- Franklink Profile Picture -->
+                    <img src="iMessage_phone_demo/phone_two/Franklink Logo.png" alt="Franklink Profile" class="franklink-profile">
+                    <div class="franklink-text">Franklink</div>
+
+                    <!-- Messages Container for Phone 2 -->
+                    <div class="messages-container">
+                        <!-- Message 1: Agent message (gray, left side) -->
+                        <div class="message agent-msg slide-in-left" style="animation-delay: 0.5s" data-delay="0.5s">
+                            What up! How is the Jane<br>Street Info session? Helpful?
+                        </div>
+
+                        <!-- Message 2: User message (blue, right side) -->
+                        <div class="message user-msg slide-in-right" style="animation-delay: 1s" data-delay="1s">
+                            It was fantastic! Curious about<br>jobs like Quant Researcher now
+                        </div>
+
+                        <!-- Message 3: Agent message (gray, left side) -->
+                        <div class="message agent-msg slide-in-left" style="animation-delay: 1.5s" data-delay="1.5s">
+                            Glad you find sth interesting.<br>Let's explore a little more
+                        </div>
+
+                        <!-- Resource Card 1: Books and Videos -->
+                        <div class="resource-card slide-in-left" style="animation-delay: 2s" data-delay="2s">
+                            <div class="resource-section-title">I. Books and Videos for Intro</div>
+                            <div class="resource-links">
+                                <div class="resource-item">
+                                    <a href="#" class="resource-link">A Practical Guide to Quantitative Finance Interviews</a>
+                                    <span class="resource-desc">→ Quant Green Book</span>
+                                </div>
+                                <div class="resource-item">
+                                    <a href="#" class="resource-link">The Man Who Solved the Market</a>
+                                    <span class="resource-desc">→ Learn from Jim Simons</span>
+                                </div>
+                                <div class="resource-item">
+                                    <a href="#" class="resource-link">Inside the $700K Quant Finance Career Path After College</a>
+                                    <span class="resource-desc">→ What is Quant like</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resource Card 2: School Resources -->
+                        <div class="resource-card slide-in-right" style="animation-delay: 2.5s" data-delay="2.5s">
+                            <div class="resource-section-title">II. Resources at Your School</div>
+                            <div class="resource-text">U can apply for these clubs to learn more about<br>Quant. Let me know if u need help applying！</div>
+                            <div class="resource-content-row">
+                                <div class="club-logos-row">
+                                    <img src="iMessage_phone_demo/phone_two/wufc.png" alt="WUFC" class="club-logo">
+                                    <img src="iMessage_phone_demo/phone_two/witg.png" alt="WITG" class="club-logo">
+                                    <img src="iMessage_phone_demo/phone_two/pqtc.png" alt="PQTC" class="club-logo">
+                                </div>
+                                <div class="resource-text-right">
+                                    To learn more about<br>
+                                    Quant, u can consider<br>
+                                    applying for these clubs.<br><br>
+                                    Let me know if u need any<br>
+                                    help in applying!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resource Card 3: Firms -->
+                        <div class="resource-card slide-in-left" style="animation-delay: 3s" data-delay="3s">
+                            <div class="resource-section-title">III. What firms are out there?</div>
+                            <div class="resource-text" style="text-align: center; margin-top: -5px;" >...</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side - Text Content -->
+            <div class="text-section">
+                <h1 class="main-title">Your Personalized</h1>
+                <h2 class="subtitle">AI Career Agent & Companion</h2>
+
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">10000+</div>
+                        <div class="stat-label">Career Resources</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">Free</div>
+                        <div class="stat-label">To Use</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">AI</div>
+                        <div class="stat-label">Powered</div>
+                    </div>
+                </div>
+
+                <button class="cta-button">Talk to Franklink Now</button>
+
+                <p class="description">
+                    We are an AI Career Agent based on iMessage,<br>
+                    which walks with college students as they explore directions,<br>
+                    opportunities, and personal growth.
+                </p>
+            </div>
+        </div>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <blockquote class="main-quote">
+                <p>It's not just about finding jobs —<br>
+                it's also about <span class="highlight">offering advice when you feel anxious, lost, or stuck.</span><br>
+                Let us accompany you through every moment of confusion and help you find the direction that fits you best.</p>
+            </blockquote>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
