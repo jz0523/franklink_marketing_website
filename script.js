@@ -388,7 +388,7 @@ document.addEventListener('visibilitychange', function() {
 const ctaButton = document.querySelector('.cta-button');
 if (ctaButton) {
     // Add ARIA label for accessibility
-    ctaButton.setAttribute('aria-label', 'Talk to Franklink Now - Opens iMessage redirect in new tab');
+    ctaButton.setAttribute('aria-label', 'Talk to Frank Now - Opens iMessage redirect in new tab');
 }
 
 // Easter egg: Konami code for fun animation
