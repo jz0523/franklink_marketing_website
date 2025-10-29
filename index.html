@@ -10,16 +10,35 @@
     <!-- Navigation Header -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">
+            <a href="index.html" class="logo">
                 <img src="Franklink Banner 2.png" alt="Franklink" class="logo-img">
-            </div>
+            </a>
+            <!-- Horizontal Navigation Links (visible on desktop) -->
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <!-- Navigation Drawer (mobile only) -->
+            <div class="nav-drawer" id="nav-drawer">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <!-- Navigation Overlay (for closing drawer) -->
+            <div class="nav-overlay" id="nav-overlay"></div>
         </div>
     </nav>
 
@@ -38,65 +57,25 @@
                     <!-- Phone Background Only -->
                     <img src="iMessage_phone_demo/phone_one/phone.png" alt="iPhone" class="phone-image">
 
-                    <!-- Franklink Profile Picture -->
-                    <img src="iMessage_phone_demo/phone_one/Franklink Logo.png" alt="Franklink Profile" class="franklink-profile">
-                    <div class="franklink-text">Franklink</div>
+                    <!-- Franklink Profile (logo + text combined) -->
+                    <img src="iMessage_phone_demo/phone_one/franklink_profile.png" alt="Franklink AI" class="franklink-profile">
 
-                    <!-- Messages Container -->
+                    <!-- Messages Container - Using pre-rendered PNG images -->
                     <div class="messages-container">
-                        <!-- Message 1: User message (blue, right side) -->
-                        <div class="message user-msg slide-in-right" style="animation-delay: 0.5s" data-delay="0.5s">
-                            Can you help me find events I<br>can attend next week?
-                        </div>
+                        <!-- Message 1: User asking for events -->
+                        <img src="iMessage_phone_demo/phone_one/message_one.png" alt="User message" class="content-image slide-in-right" style="animation-delay: 0.5s" data-delay="0.5s">
 
-                        <!-- Message 2: Agent message (gray, left side) -->
-                        <div class="message agent-msg slide-in-left" style="animation-delay: 1s" data-delay="1s">
-                            For sure,buddy! See these<br>events near ur school:
-                        </div>
+                        <!-- Message 2: Agent response -->
+                        <img src="iMessage_phone_demo/phone_one/message_two.png" alt="Agent message" class="content-image slide-in-left" style="animation-delay: 1s" data-delay="1s">
 
                         <!-- Event Card 1: AI Entrepreneurship Workshop -->
-                        <div class="event-card slide-in-left" style="animation-delay: 1.5s" data-delay="1.5s">
-                            <div class="event-header">
-                                <span class="bullet">•</span>
-                                <span class="event-title">AI Entrepreneurship Workshop</span>
-                            </div>
-                            <div class="event-content-simple">
-                                <img src="iMessage_phone_demo/phone_one/AI_Entrepreneurship_Workshop.png" alt="Dharmesh Thakker" class="speaker-photo">
-                                <div class="event-right">
-                                    <div class="event-date-blue">10/22 2:00pm - 4:00pm<br>@ Tangen Hall</div>
-                                    <div class="event-actions">
-                                        <a href="#" class="action-link">Add to Calendar</a>
-                                        <a href="#" class="action-link">Learn More</a>
-                                        <a href="#" class="action-link">Signup</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="iMessage_phone_demo/phone_one/event_card_one.png" alt="AI Entrepreneurship Workshop" class="content-image slide-in-left" style="animation-delay: 1.5s" data-delay="1.5s">
 
                         <!-- Event Card 2: Jane Street Information Session -->
-                        <div class="event-card slide-in-right" style="animation-delay: 2s" data-delay="2s">
-                            <div class="event-header jane-street-header">
-                                <span class="bullet">•</span>
-                                <span class="event-title">Jane Street Information Session</span>
-                            </div>
-                            <div class="event-content-simple">
-                                <img src="iMessage_phone_demo/phone_one/Jane_Street_Info_Session.png" alt="Jane Street" class="jane-street-logo">
-                                <div class="event-right">
-                                    <div class="event-date-blue">10/29 7:00pm - 8:00pm<br>@ Virtual</div>
-                                    <div class="event-actions">
-                                        <a href="#" class="action-link">Add to Calendar</a>
-                                        <a href="#" class="action-link">Learn More</a>
-                                        <a href="#" class="action-link">Signup</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="iMessage_phone_demo/phone_one/event_card_two.png" alt="Jane Street Information Session" class="content-image slide-in-right" style="animation-delay: 2s" data-delay="2s">
 
                         <!-- Message 3: Agent message with like -->
-                        <div class="message agent-msg with-like slide-in-left" style="animation-delay: 2.5s" data-delay="2.5s">
-                            They fit ur schedule well! Remind<br>you 15 mins before them?
-                            <img src="iMessage_phone_demo/phone_one/like_icon.png" alt="Like" class="msg-like-icon">
-                        </div>
+                        <img src="iMessage_phone_demo/phone_one/message_three.png" alt="Agent message with like" class="content-image slide-in-left" style="animation-delay: 2.5s" data-delay="2.5s">
                     </div>
 
                 </div>
@@ -106,71 +85,28 @@
                     <!-- Phone Background -->
                     <img src="iMessage_phone_demo/phone_two/phone.png" alt="iPhone" class="phone-image">
 
-                    <!-- Franklink Profile Picture -->
-                    <img src="iMessage_phone_demo/phone_two/Franklink Logo.png" alt="Franklink Profile" class="franklink-profile">
-                    <div class="franklink-text">Franklink</div>
+                    <!-- Franklink Profile (logo + text combined) -->
+                    <img src="iMessage_phone_demo/phone_two/franklink_profile.png" alt="Franklink AI" class="franklink-profile">
 
-                    <!-- Messages Container for Phone 2 -->
+                    <!-- Messages Container for Phone 2 - Using pre-rendered PNG images -->
                     <div class="messages-container">
-                        <!-- Message 1: Agent message (gray, left side) -->
-                        <div class="message agent-msg slide-in-left" style="animation-delay: 0.5s" data-delay="0.5s">
-                            What up! How is the Jane<br>Street Info session? Helpful?
-                        </div>
+                        <!-- Message 4: Agent question -->
+                        <img src="iMessage_phone_demo/phone_two/message_four.png" alt="Agent message" class="content-image slide-in-left" style="animation-delay: 0.5s" data-delay="0.5s">
 
-                        <!-- Message 2: User message (blue, right side) -->
-                        <div class="message user-msg slide-in-right" style="animation-delay: 1s" data-delay="1s">
-                            It was fantastic! Curious about<br>jobs like Quant Researcher now
-                        </div>
+                        <!-- Message 5: User response -->
+                        <img src="iMessage_phone_demo/phone_two/message_five.png" alt="User message" class="content-image slide-in-right" style="animation-delay: 1s" data-delay="1s">
 
-                        <!-- Message 3: Agent message (gray, left side) -->
-                        <div class="message agent-msg slide-in-left" style="animation-delay: 1.5s" data-delay="1.5s">
-                            Glad you find sth interesting.<br>Let's explore a little more
-                        </div>
+                        <!-- Message 6: Agent response -->
+                        <img src="iMessage_phone_demo/phone_two/message_six.png" alt="Agent message" class="content-image slide-in-left" style="animation-delay: 1.5s" data-delay="1.5s">
 
                         <!-- Resource Card 1: Books and Videos -->
-                        <div class="resource-card slide-in-left" style="animation-delay: 2s" data-delay="2s">
-                            <div class="resource-section-title">I. Books and Videos for Intro</div>
-                            <div class="resource-links">
-                                <div class="resource-item">
-                                    <a href="#" class="resource-link">A Practical Guide to Quantitative Finance Interviews</a>
-                                    <span class="resource-desc">→ Quant Green Book</span>
-                                </div>
-                                <div class="resource-item">
-                                    <a href="#" class="resource-link">The Man Who Solved the Market</a>
-                                    <span class="resource-desc">→ Learn from Jim Simons</span>
-                                </div>
-                                <div class="resource-item">
-                                    <a href="#" class="resource-link">Inside the $700K Quant Finance Career Path After College</a>
-                                    <span class="resource-desc">→ What is Quant like</span>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="iMessage_phone_demo/phone_two/card_one.png" alt="Books and Videos for Intro" class="content-image slide-in-left" style="animation-delay: 2s" data-delay="2s">
 
                         <!-- Resource Card 2: School Resources -->
-                        <div class="resource-card slide-in-right" style="animation-delay: 2.5s" data-delay="2.5s">
-                            <div class="resource-section-title">II. Resources at Your School</div>
-                            <div class="resource-text">U can apply for these clubs to learn more about<br>Quant. Let me know if u need help applying！</div>
-                            <div class="resource-content-row">
-                                <div class="club-logos-row">
-                                    <img src="iMessage_phone_demo/phone_two/wufc.png" alt="WUFC" class="club-logo">
-                                    <img src="iMessage_phone_demo/phone_two/witg.png" alt="WITG" class="club-logo">
-                                    <img src="iMessage_phone_demo/phone_two/pqtc.png" alt="PQTC" class="club-logo">
-                                </div>
-                                <div class="resource-text-right">
-                                    To learn more about<br>
-                                    Quant, u can consider<br>
-                                    applying for these clubs.<br><br>
-                                    Let me know if u need any<br>
-                                    help in applying!
-                                </div>
-                            </div>
-                        </div>
+                        <img src="iMessage_phone_demo/phone_two/card_two.png" alt="Resources at Your School" class="content-image slide-in-right" style="animation-delay: 2.5s" data-delay="2.5s">
 
                         <!-- Resource Card 3: Firms -->
-                        <div class="resource-card slide-in-left" style="animation-delay: 3s" data-delay="3s">
-                            <div class="resource-section-title">III. What firms are out there?</div>
-                            <div class="resource-text" style="text-align: center; margin-top: -5px;" >...</div>
-                        </div>
+                        <img src="iMessage_phone_demo/phone_two/card_three.png" alt="What firms are out there?" class="content-image slide-in-left" style="animation-delay: 3s" data-delay="3s">
                     </div>
                 </div>
             </div>
@@ -195,7 +131,7 @@
                     </div>
                 </div>
 
-                <button class="cta-button">Talk to Franklink Now</button>
+                <a href="imessage-redirect.html" target="_blank" class="cta-button" role="button">Talk to Franklink Now</a>
 
                 <p class="description">
                     We are an AI Career Agent based on iMessage,<br>

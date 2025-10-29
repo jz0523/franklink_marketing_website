@@ -1,22 +1,5 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-
-# IDE
-.vscode/
-.idea/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Local development
-server.py
-*.log
-
-# Temporary files
-*.tmp
-*.temp
+# OpenSpec files
+openspec/
+.claude/
+AGENTS.md
+CLAUDE.md

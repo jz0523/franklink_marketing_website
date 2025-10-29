@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to iMessage - Franklink</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            padding: 40px 30px;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Status Message Section */
+        .status-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .status-message {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #e0e0e0;
+            border-top-color: #5B6DFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Button Styles */
+        .button {
+            display: inline-block;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .button-primary {
+            background: #5B6DFF;
+            color: white;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .button-primary:hover {
+            background: #4A5CE8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(91, 109, 255, 0.3);
+        }
+
+        .button-primary:active {
+            transform: translateY(0);
+        }
+
+        .button-copy {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 12px;
+            font-size: 1.2rem;
+            color: #5B6DFF;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .button-copy:hover {
+            background: #f0f2ff;
+            color: #4A5CE8;
+        }
+
+        .button-copy:focus {
+            outline: 2px solid #5B6DFF;
+            outline-offset: 2px;
+        }
+
+        .button-copy:active {
+            transform: scale(0.95);
+        }
+
+        /* Instructions Section */
+        .instructions-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .instructions-heading {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #333;
+        }
+
+        .step {
+            margin-bottom: 30px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #5B6DFF;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 600;
+            margin-right: 12px;
+            font-size: 0.95rem;
+        }
+
+        .step-content {
+            display: inline-block;
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 8px;
+            max-width: calc(100% - 50px);
+        }
+
+        .step-phone-number {
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-weight: 600;
+            color: #333;
+            font-size: 1.05rem;
+        }
+
+        .copy-container {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .phone-number-display {
+            background: #f5f5f5;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .copy-feedback {
+            display: none;
+            font-size: 0.9rem;
+            color: #10B981;
+            font-weight: 500;
+            margin-top: 6px;
+        }
+
+        .copy-feedback.show {
+            display: inline-block;
+            animation: fadeInOut 2s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        .step-image-placeholder {
+            margin-top: 16px;
+            padding: 40px 20px;
+            background: #f9f9f9;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+                border-radius: 8px;
+            }
+
+            .status-message {
+                font-size: 1.1rem;
+            }
+
+            .button {
+                font-size: 1rem;
+                padding: 12px 24px;
+            }
+
+            .step-number {
+                width: 28px;
+                height: 28px;
+                line-height: 28px;
+                font-size: 0.9rem;
+            }
+
+            .step-content {
+                font-size: 0.95rem;
+            }
+
+            .instructions-heading {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px 16px;
+                border-radius: 8px;
+            }
+
+            .status-message {
+                font-size: 1rem;
+            }
+
+            .button {
+                font-size: 0.95rem;
+                padding: 11px 20px;
+            }
+
+            .copy-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 6px;
+            }
+        }
+
+        /* Accessibility - Focus visible */
+        .button-primary:focus {
+            outline: 2px solid #4A5CE8;
+            outline-offset: 2px;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+                color: #e0e0e0;
+            }
+
+            .container {
+                background: #2a2a2a;
+                color: #e0e0e0;
+            }
+
+            .status-message {
+                color: #e0e0e0;
+            }
+
+            .instructions-heading {
+                color: #e0e0e0;
+            }
+
+            .step-content {
+                color: #e0e0e0;
+            }
+
+            .step-phone-number {
+                color: #e0e0e0;
+            }
+
+            .phone-number-display {
+                background: #3a3a3a;
+                color: #e0e0e0;
+            }
+
+            .step-image-placeholder {
+                background: #3a3a3a;
+                border-color: #444;
+                color: #666;
+            }
+
+            .button-copy:hover {
+                background: #3a3a3a;
+            }
+
+            .border-top {
+                border-top-color: #444;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Status Section -->
+        <div class="status-section">
+            <div class="status-message">
+                <div class="spinner"></div>
+                <span>Redirecting you to iMessage...</span>
+            </div>
+        </div>
+
+        <!-- Manual Button -->
+        <button class="button button-primary" id="openImessageBtn" aria-label="Open iMessage manually">
+            Open iMessage
+        </button>
+
+        <!-- Instructions Section -->
+        <div class="instructions-section">
+            <h2 class="instructions-heading">Having trouble?</h2>
+
+            <!-- Step 1 -->
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-content">Open your Messages app</span>
+                <div class="step-image-placeholder">
+                    [Image placeholder: Screenshot of Messages app icon]
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-content">Create a new message</span>
+                <div class="step-image-placeholder">
+                    [Image placeholder: Screenshot of "New Message" button]
+                </div>
+            </div>
+
+            <!-- Step 3 with Copy Button -->
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-content">Add this phone number:</span>
+                <div class="copy-container">
+                    <div class="phone-number-display">6463707933</div>
+                    <button
+                        class="button-copy"
+                        id="copyPhoneBtn"
+                        aria-label="Copy phone number to clipboard"
+                        title="Click to copy phone number"
+                    >
+                        📋
+                    </button>
+                </div>
+                <div class="copy-feedback" id="copyFeedback">✓ Copied!</div>
+                <div class="step-image-placeholder">
+                    [Image placeholder: Screenshot of phone number entry field]
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="step">
+                <span class="step-number">4</span>
+                <span class="step-content">Type a message and send it to Franklink</span>
+                <div class="step-image-placeholder">
+                    [Image placeholder: Screenshot of message composition area]
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const IMESSAGE_CONFIG = {
+            phoneNumber: '6463707933',
+            message: 'Hi Franklink, what can you do?',
+            timeout: 2000, // 2 seconds
+        };
+
+        // State tracking
+        let redirectAttempted = false;
+        let redirectTimeout = null;
+
+        /**
+         * Build iMessage URI with phone number and pre-filled message
+         */
+        function buildIMessageURI() {
+            const encodedMessage = encodeURIComponent(IMESSAGE_CONFIG.message);
+            return `imessage://${IMESSAGE_CONFIG.phoneNumber}?body=${encodedMessage}`;
+        }
+
+        /**
+         * Auto-redirect to iMessage on page load
+         * Triggered when DOMContentLoaded fires
+         */
+        function autoRedirectToIMessage() {
+            if (redirectAttempted) return;
+            redirectAttempted = true;
+
+            console.log('Attempting auto-redirect to iMessage with phone number:', IMESSAGE_CONFIG.phoneNumber);
+            console.log('Pre-filled message:', IMESSAGE_CONFIG.message);
+
+            // Set timeout to detect if redirect fails
+            redirectTimeout = setTimeout(() => {
+                console.log('iMessage redirect failed or timed out after', IMESSAGE_CONFIG.timeout, 'ms');
+                // Fallback UI (instructions) remains visible
+            }, IMESSAGE_CONFIG.timeout);
+
+            // Try iMessage scheme first (iOS) with pre-filled message
+            const iMessageScheme = buildIMessageURI();
+            console.log('Trying iMessage scheme:', iMessageScheme);
+            window.location.href = iMessageScheme;
+        }
+
+        /**
+         * Manual redirect trigger (when user clicks button)
+         */
+        function manualOpenIMessage() {
+            console.log('User manually triggered iMessage redirect');
+            const iMessageScheme = buildIMessageURI();
+            window.location.href = iMessageScheme;
+        }
+
+        /**
+         * Copy phone number to clipboard with Clipboard API and fallback
+         */
+        async function copyPhoneNumber() {
+            const phoneNumber = IMESSAGE_CONFIG.phoneNumber;
+            console.log('Attempting to copy phone number:', phoneNumber);
+
+            try {
+                // Try modern Clipboard API first
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(phoneNumber);
+                    console.log('Phone number copied successfully via Clipboard API');
+                    showCopySuccess();
+                    return true;
+                } else {
+                    throw new Error('Clipboard API not available');
+                }
+            } catch (err) {
+                console.warn('Clipboard API failed:', err);
+                console.log('Falling back to textarea copy method');
+
+                // Fallback for older browsers or permission denial
+                try {
+                    const textarea = document.createElement('textarea');
+                    textarea.value = phoneNumber;
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = '0';
+                    document.body.appendChild(textarea);
+                    textarea.select();
+
+                    const successful = document.execCommand('copy');
+                    document.body.removeChild(textarea);
+
+                    if (successful) {
+                        console.log('Phone number copied successfully via textarea method');
+                        showCopySuccess();
+                        return true;
+                    } else {
+                        throw new Error('execCommand copy failed');
+                    }
+                } catch (fallbackErr) {
+                    console.error('Both clipboard methods failed:', fallbackErr);
+                    // Silently fail - don't show error, just don't show success
+                    return false;
+                }
+            }
+        }
+
+        /**
+         * Show "Copied!" feedback for 2 seconds
+         */
+        function showCopySuccess() {
+            const feedback = document.getElementById('copyFeedback');
+            if (!feedback) return;
+
+            // Show feedback
+            feedback.classList.add('show');
+
+            // Announce to screen readers
+            announceToScreenReader('Phone number copied to clipboard');
+
+            // Remove after animation completes
+            setTimeout(() => {
+                feedback.classList.remove('show');
+            }, 2000);
+        }
+
+        /**
+         * Announce message to screen readers using ARIA live region
+         */
+        function announceToScreenReader(message) {
+            let liveRegion = document.querySelector('[role="status"][aria-live="polite"]');
+            if (!liveRegion) {
+                liveRegion = document.createElement('div');
+                liveRegion.setAttribute('role', 'status');
+                liveRegion.setAttribute('aria-live', 'polite');
+                liveRegion.style.position = 'fixed';
+                liveRegion.style.left = '-9999px'; // Hide visually
+                liveRegion.style.width = '1px';
+                liveRegion.style.height = '1px';
+                liveRegion.style.overflow = 'hidden';
+                document.body.appendChild(liveRegion);
+            }
+
+            liveRegion.textContent = message;
+            console.log('Screen reader announcement:', message);
+        }
+
+        /**
+         * Initialize event listeners
+         */
+        function initializeEventListeners() {
+            // Open iMessage button
+            const openBtn = document.getElementById('openImessageBtn');
+            if (openBtn) {
+                openBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    manualOpenIMessage();
+                });
+            }
+
+            // Copy phone number button
+            const copyBtn = document.getElementById('copyPhoneBtn');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', async function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    await copyPhoneNumber();
+                });
+
+                // Support keyboard activation
+                copyBtn.addEventListener('keypress', async function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        await copyPhoneNumber();
+                    }
+                });
+            }
+        }
+
+        /**
+         * Main initialization - runs when page is ready
+         */
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                initializeEventListeners();
+                autoRedirectToIMessage();
+            });
+        } else {
+            // Page already loaded (rare but possible)
+            initializeEventListeners();
+            autoRedirectToIMessage();
+        }
+    </script>
+</body>
+</html>
