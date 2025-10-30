@@ -107,6 +107,16 @@
             transform: translateY(0);
         }
 
+        /* Note below button */
+        .redirect-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 12px;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
         .button-copy {
             background: none;
             border: none;
@@ -239,6 +249,17 @@
             font-size: 0.9rem;
         }
 
+        .step-image {
+            margin-top: 16px;
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: block;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -363,6 +384,9 @@
             Open iMessage
         </button>
 
+        <!-- Note below button -->
+        <p class="redirect-note">Note: redirecting to iMessage may only work for iOS, see below for other systems</p>
+
         <!-- Instructions Section -->
         <div class="instructions-section">
             <h2 class="instructions-heading">Having trouble?</h2>
@@ -371,18 +395,14 @@
             <div class="step">
                 <span class="step-number">1</span>
                 <span class="step-content">Open your Messages app</span>
-                <div class="step-image-placeholder">
-                    [Image placeholder: Screenshot of Messages app icon]
-                </div>
+                <img src="images_redirect_guide/redirect_image1.png" alt="Screenshot of Messages app icon" class="step-image">
             </div>
 
             <!-- Step 2 -->
             <div class="step">
                 <span class="step-number">2</span>
                 <span class="step-content">Create a new message</span>
-                <div class="step-image-placeholder">
-                    [Image placeholder: Screenshot of "New Message" button]
-                </div>
+                <img src="images_redirect_guide/redirect_image2.jpg" alt="Screenshot of New Message button" class="step-image">
             </div>
 
             <!-- Step 3 with Copy Button -->
@@ -401,18 +421,14 @@
                     </button>
                 </div>
                 <div class="copy-feedback" id="copyFeedback">✓ Copied!</div>
-                <div class="step-image-placeholder">
-                    [Image placeholder: Screenshot of phone number entry field]
-                </div>
+                <img src="images_redirect_guide/redirect_image3.png" alt="Screenshot of phone number entry field" class="step-image">
             </div>
 
             <!-- Step 4 -->
             <div class="step">
                 <span class="step-number">4</span>
                 <span class="step-content">Type a message and send it to Frank</span>
-                <div class="step-image-placeholder">
-                    [Image placeholder: Screenshot of message composition area]
-                </div>
+                <img src="images_redirect_guide/redirect_image4.png" alt="Screenshot of message composition area" class="step-image">
             </div>
         </div>
     </div>

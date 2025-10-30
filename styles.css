@@ -1186,6 +1186,13 @@ img {
     display: block;
 }
 
+/* Zoom and crop Beatrice's photo to better see her face */
+.beatrice-photo {
+    object-fit: cover;
+    object-position: center 20%;
+    transform: scale(1.3);
+}
+
 .member-name {
     font-size: 1.3rem;
     font-weight: 600;
